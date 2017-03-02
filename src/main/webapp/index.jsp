@@ -15,10 +15,10 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li data-id="java" class="active"><a
-                        href="java">Java</a></li>
-                    <li data-id="spring"><a href="spring">Spring</a></li>
-                    <li data-id="hiberante"><a href="hiberante">Hiberante</a></li>
+                    <li class="active"><a href="home">首页</a></li>
+                    <li><a href="#">Java</a></li>
+                    <li><a href="spring">Spring</a></li>
+                    <li><a href="hiberante">Hiberante</a></li>
                 </ul>
             </div>
         </div>
