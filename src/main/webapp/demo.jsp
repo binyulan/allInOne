@@ -213,4 +213,5 @@ public class SimpleTest {
 onclick='$("#video5").html("<video style=\"width:620px;\" controls=\"controls\" src=\"video/hibernate-1.5.mp4\"></video>")'>见视频操作，可最大化</a>
 <p id="video5"></p>
 </div>
+</body>
 </html>

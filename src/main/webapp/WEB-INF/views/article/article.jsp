@@ -15,27 +15,18 @@
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <body style="background-color:#f5f5f5">
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-        <div>
-            <ul class="nav navbar-nav">
-                <li data-id="JAVA" class="active"><a href="#JAVA">Java</a></li>
-                <li data-id="JAVASCRIPT"><a href="#JAVASCRIPT">Javascript</a></li>
-                <li data-id="SPRING"><a href="#JAVASCRIPT">Spring</a></li>
-                <li data-id="BACKBONEJS"><a href="#JAVASCRIPT">Hiberante</a></li>
-                <li>
-                    <form class="navbar-form">
-                        <div class="form-group">
-                            <input id="searchText" type="text" onkeypress="if(event.keyCode == 13)return false" class="form-control" placeholder="搜索">
-                        </div>
-                        <button id="searchArticle" type="button" class="btn btn-default">搜索</button>
-                    </form>
-                </li>
-            </ul>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li data-id="java" class="active"><a
+                        href="java">Java</a></li>
+                    <li data-id="spring"><a href="spring">Spring</a></li>
+                    <li data-id="hiberante"><a href="hiberante">Hiberante</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-<div>
-${message}
-</div>
+    </nav>
+    <div>${message}</div>
+</body>
 </html>
