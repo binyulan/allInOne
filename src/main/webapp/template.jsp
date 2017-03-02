@@ -23,7 +23,6 @@
             </div>
         </div>
     </nav>
-    <div id="presentation" class="container-fluid">
-    </div>
+    <div id="presentation" class="container-fluid"></div>
 </body>
 </html>
