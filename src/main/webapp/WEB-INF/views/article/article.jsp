@@ -37,7 +37,12 @@
         </div>
     </nav>
     <div id="presentation" class="container-fluid">
-        <div id="article">${message}</div>
+        <div id="article">
+            <div class="page-header">
+                <h1>Hibernate 环境搭建</h1>
+            </div>
+            ${message}
+        </div>
         <div id="comments">
             <div class="panel panel-default">
                 <div class="panel-heading">发表于2017-01-01 hh:MM:ss</div>
