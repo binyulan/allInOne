@@ -59,8 +59,19 @@
                 <textarea class="form-control" id="comment"
                     name="comment" placeholder="请输入回复内容" rows="10"></textarea>
             </div>
-            <button type="button" class="btn btn-default">添加回复</button>
+            <button type="button" id="addComment" class="btn btn-default">添加回复</button>
         </form>
     </div>
+    <script type="text/javascript">
+        $("#addComment").bind("click", function() {
+            $.post("article", {comment: $("#comment").val()}, function(data) {
+                $("#comments").prepend(
+                    '<div class="panel panel-default">'
+                   +    '<div class="panel-heading">DATA FROM BACKEND</div>'
+                   +    '<div class="panel-body">Panel content</div></div>'
+                );
+            });
+        });
+    </script>
 </body>
 </html>
