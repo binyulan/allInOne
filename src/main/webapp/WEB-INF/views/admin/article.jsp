@@ -22,7 +22,7 @@
     </nav>
     <div id="presentation" class="container-fluid">
         <div class="row">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="article" method="post">
                 <div class="form-group">
                     <label for="title" class="col-sm-1 control-label">标题</label>
                     <div class="col-sm-9">

@@ -1,0 +1,38 @@
+package com.auuid.article.controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.auuid.article.domain.Article;
+import com.auuid.article.service.ArticleService;
+
+@Controller
+public class ArticleController {
+
+	@Resource
+	private ArticleService articleService;
+	
+	@RequestMapping("/article/{id}")
+	public ModelAndView getArticle(@PathVariable("id") Long id) {
+		Article article = articleService.getArticle(id);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("article", article);
+		mv.setViewName("article/article");
+		return mv;
+	}
+	
+	@RequestMapping("/index")
+	public ModelAndView getArticles() {
+		List<Article> articles = articleService.getArticles();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("articles", articles);
+		mv.setViewName("index");
+		return mv;
+	}
+}

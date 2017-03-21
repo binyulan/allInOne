@@ -5,14 +5,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>首页</title>
-<link href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="lib/syntaxhighlighter/styles/shCoreDefault.css" />
+<link href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="../lib/syntaxhighlighter/styles/shCoreDefault.css" />
 <link rel="shortcut icon" type="images/x-icon" href="../icon/person.ico" />
-<script type="text/javascript" src="lib/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="lib/syntaxhighlighter/scripts/shCore.js"></script>
-<script type="text/javascript" src="lib/syntaxhighlighter/scripts/shBrushXml.js"></script>
-<script type="text/javascript" src="lib/syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../lib/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shBrushJava.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all();
 </script>
@@ -22,10 +22,7 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li data-id="java" class="active"><a
-                        href="java">Java</a></li>
-                    <li data-id="spring"><a href="spring">Spring</a></li>
-                    <li data-id="hiberante"><a href="hiberante">Hiberante</a></li>
+                    <li data-id="java" class="active"><a href="../index">Java</a></li>
                 </ul>
             </div>
         </div>
@@ -33,9 +30,9 @@
     <div id="presentation" class="container-fluid">
         <div id="article">
             <div class="page-header">
-                <h1>Hibernate 环境搭建</h1>
+                <h1>${article.title}</h1>
             </div>
-            ${message}
+            ${article.content}
         </div>
         <div id="comments">
             <div class="panel panel-default">

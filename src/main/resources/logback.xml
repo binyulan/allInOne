@@ -15,11 +15,10 @@
 
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/Users/bradyhan/Desktop/allInOneLog.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>allInOneLog.%d{yyyy-MM-dd}.log</fileNamePattern>
         </rollingPolicy>
         <encoder>
-            <pattern>%d [%thread] %-5level %logger{36} - %msg%n
-            </pattern>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
