@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,21 +35,19 @@
             </div>
             ${article.content}
         </div>
-        <div id="comments">
-            <div class="panel panel-default">
-                <div class="panel-heading">发表于2017-01-01 hh:MM:ss</div>
-                <div class="panel-body">Panel content</div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">发表于2017-01-01 hh:MM:ss</div>
-                <div class="panel-body">Panel content</div>
-            </div>
+        <div id="comments" style="margin-top: 90px">
+            <c:forEach items="${article.comments}" var="comment">
+                <div class="panel panel-default">
+                    <div class="panel-heading">${comment.postDate}</div>
+                    <div class="panel-body">${comment.content}</div>
+                </div>
+            </c:forEach>
         </div>
         <form>
             <div class="form-group">
                 <label for="comment" class="control-label">回复</label>
                 <textarea class="form-control" id="comment"
-                    name="comment" placeholder="请输入回复内容" rows="10"></textarea>
+                    name="comment" placeholder="请输入回复内容" rows="10" maxlength="255" ></textarea>
             </div>
             <button type="button" id="addComment" class="btn btn-default">添加回复</button>
         </form>
@@ -56,12 +55,7 @@
     <script type="text/javascript">
         $("#addComment").bind("click", function() {
             $(".modal").modal('show');
-            $.post("article", {comment: $("#comment").val()}, function(data) {
-                $("#comments").prepend(
-                    '<div class="panel panel-default">'
-                   +    '<div class="panel-heading">DATA FROM BACKEND</div>'
-                   +    '<div class="panel-body">' + $("#comment").val() + '</div></div>'
-                );
+            $.post("comment", {content: $("#comment").val(), articleId: "${article.id}"}, function(data) {
                 $(".progress").hide();
                 $(".alert-success").show();
                 setTimeout(function(){
@@ -69,7 +63,12 @@
                     $(".progress").show(1000);
                     $(".alert-success").hide(1000);
                 }, 1000);
-               
+                $("#comments").prepend(
+                        '<div class="panel panel-default">'
+                       +    '<div class="panel-heading">now</div>'
+                       +    '<div class="panel-body">' + $("#comment").val() + '</div></div>'
+                    );
+                $("#comment").val("");
             });
         });
     </script>

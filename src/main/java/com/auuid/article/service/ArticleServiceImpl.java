@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.auuid.article.dao.ArticleDao;
 import com.auuid.article.domain.Article;
 import com.auuid.article.domain.ArticleType;
+import com.auuid.article.domain.Comment;
 
 @Service
 public class ArticleServiceImpl implements ArticleService{
@@ -33,6 +34,15 @@ public class ArticleServiceImpl implements ArticleService{
 		article.setPostDate(new Date());
 		article.setArticleType(ArticleType.LINUX);
 		articleDao.save(article);;
+	}
+
+	@Transactional
+	public void save(Comment comment) {
+		Article article = articleDao.getArticle(comment.getArticleId());
+		comment.setPostDate(new Date());
+		article.getComments().add(comment);
+		articleDao.save(comment);
+		
 	}
 
 }

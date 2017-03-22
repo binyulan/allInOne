@@ -1,7 +1,7 @@
 package com.auuid.article.domain;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 public class Article {
 	private Long id;
@@ -9,12 +9,12 @@ public class Article {
 	private String content;
 	private Date postDate;
 	private ArticleType articleType;
-	private List<Comment> comments;
+	private Set<Comment> comments;
 	
-	public List<Comment> getComments() {
+	public Set<Comment> getComments() {
 		return comments;
 	}
-	public void setComments(List<Comment> comments) {
+	public void setComments(Set<Comment> comments) {
 		this.comments = comments;
 	}
 	public Long getId() {

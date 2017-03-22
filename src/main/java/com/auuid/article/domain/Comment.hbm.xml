@@ -11,11 +11,14 @@
         <property name="content" type="java.lang.String">
             <column name="content" length="2048"/>
         </property>
-        <property name="postDate" type="java.sql.Date">
+        <property name="postDate" type="java.util.Date">
             <column name="post_date" />
         </property>
         <property name="personName" type="java.lang.String">
             <column name="person_name" />
+        </property>
+        <property name="articleId" type="java.lang.Long">
+            <column name="article_id" />
         </property>
     </class>
 </hibernate-mapping>

@@ -16,9 +16,7 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="home">首页</a></li>
-                    <li><a href="#">Java</a></li>
-                    <li><a href="spring">Spring</a></li>
-                    <li><a href="hiberante">Hiberante</a></li>
+                    <li><a href="#">Linux</a></li>
                 </ul>
             </div>
         </div>
@@ -28,7 +26,7 @@
             <div id="recentJava" class="col-sm-6">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Java</h3>
+                        <h3 class="panel-title">Linux</h3>
                     </div>
                     <div class="panel-body">
                         <a href="article">article</a>

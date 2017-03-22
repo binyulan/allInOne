@@ -1,6 +1,6 @@
 package com.auuid.article.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Comment {
 
@@ -8,6 +8,7 @@ public class Comment {
 	private String content;
 	private Date postDate;
 	private String personName;
+	private Long articleId;
 	public Long getId() {
 		return id;
 	}
@@ -31,5 +32,11 @@ public class Comment {
 	}
 	public void setPersonName(String personName) {
 		this.personName = personName;
+	}
+	public Long getArticleId() {
+		return articleId;
+	}
+	public void setArticleId(Long articleId) {
+		this.articleId = articleId;
 	}
 }

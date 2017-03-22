@@ -10,9 +10,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.auuid.article.domain.Article;
+import com.auuid.article.domain.Comment;
 
 @Repository
-public class ArticleDao {
+public class ArticleDao<T> {
 
 	@Resource
 	private SessionFactory sessionFactory;
@@ -20,6 +21,11 @@ public class ArticleDao {
 	public void save (Article article) {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(article);
+	}
+	
+	public void save (Comment comment) {
+		Session session = sessionFactory.getCurrentSession();
+		session.save(comment);
 	}
 	
 	public List<Article> getArticles () {

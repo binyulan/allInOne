@@ -24,12 +24,11 @@
                 <param name="enumClass">com.auuid.article.domain.ArticleType</param>
             </type>
         </property>
-        <list name="comments" inverse="false" table="comment">
+        <set name="comments" table="comment" fetch="join">
             <key>
                 <column name="article_id" />
             </key>
-            <list-index></list-index>
-            <one-to-many class="com.auuid.article.domain.Comment" />
-        </list>
+            <one-to-many class="com.auuid.article.domain.Comment"  />
+        </set>
     </class>
 </hibernate-mapping>
