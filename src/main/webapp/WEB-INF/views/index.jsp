@@ -16,6 +16,7 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
+                    <li sclass="active"><a href="index">Java</a></li>
                     <li sclass="active"><a href="index">Linux</a></li>
                 </ul>
             </div>
@@ -26,11 +27,27 @@
             <div id="recentLinux" class="col-sm-6">
                 <div class="panel panel-info">
                     <div class="panel-heading">
+                        <h3 class="panel-title">Java</h3>
+                    </div>
+                    <div class="panel-body">
+                        <c:forEach items="${articles}" var="article">
+                            <c:if test="${article.articleType=='JAVA'}">
+                                <a href="article/${article.id}">${article.title}</a>
+                            </c:if>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+            <div id="recentLinux" class="col-sm-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Linux</h3>
                     </div>
                     <div class="panel-body">
                         <c:forEach items="${articles}" var="article">
-                            <a href="article/${article.id}">${article.title}</a>
+                            <c:if test="${article.articleType=='LINUX'}">
+                                <a href="article/${article.id}">${article.title}</a>
+                            </c:if>
                         </c:forEach>
                     </div>
                 </div>
