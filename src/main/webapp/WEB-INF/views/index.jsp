@@ -29,13 +29,15 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Java</h3>
                     </div>
-                    <div class="panel-body">
+                    <ul class="list-group">
                         <c:forEach items="${articles}" var="article">
                             <c:if test="${article.articleType=='JAVA'}">
-                                <a href="article/${article.id}">${article.title}</a>
+                                <li class="list-group-item"><a
+                                    href="article/${article.id}">${article.title}</a>
+                                </li>
                             </c:if>
                         </c:forEach>
-                    </div>
+                    </ul>
                 </div>
             </div>
             <div id="recentLinux" class="col-sm-6">
@@ -43,13 +45,15 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Linux</h3>
                     </div>
-                    <div class="panel-body">
+                    <ul class="list-group">
                         <c:forEach items="${articles}" var="article">
                             <c:if test="${article.articleType=='LINUX'}">
-                                <a href="article/${article.id}">${article.title}</a>
+                                <li class="list-group-item"><a
+                                    href="article/${article.id}">${article.title}</a>
+                                </li>
                             </c:if>
                         </c:forEach>
-                    </div>
+                    </ul>
                 </div>
             </div>
         </div>
