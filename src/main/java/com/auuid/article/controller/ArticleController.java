@@ -43,4 +43,11 @@ public class ArticleController {
 	public @ResponseBody void saveComment(Comment comment) {
 		articleService.save(comment);
 	}
+	
+	@RequestMapping(value="/{path}")
+	public ModelAndView redirectTo(@PathVariable("path") String path) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(path);
+		return mv;
+	}
 }
