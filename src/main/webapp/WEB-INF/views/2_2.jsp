@@ -62,6 +62,7 @@
             context.lineTo(540, 180);
             context.moveTo(400, 210);
             context.lineTo(540, 210);
+            context.fillText("Stack", 410, 85);
         	context.stroke();
         }
         if (i == 7 || debug) {
@@ -71,11 +72,7 @@
             context.fillText("0x0004", 550, 206);
         }
         if (i == 8 || debug) {
-            context.beginPath();
-            context.fillText("0x0001", 550, 116);
-            context.fillText("0x0002", 550, 146);
-            context.fillText("0x0003", 550, 176);
-            context.fillText("0x0004", 550, 206);
+            i++;
         }
         if (i == 9 || debug) {
             context.rect(210, 140, 100, 40);
@@ -100,6 +97,7 @@
         if (i == 12 || debug) {
         	context.moveTo(310, 210);
             context.lineTo(400, 105);
+            context.stroke();
         }
         if (i == 13 || debug) {
         	context.clearRect(244, 213, 50, 10);
@@ -116,12 +114,33 @@
         }
         if (i == 15 || debug) {
             context.fillText("s", 420, 204);
+            context.font="15px Arial";
+            context.fillText("0x00A3", 440, 204);
         }
         if (i == 16 || debug) {
-        	context.moveTo(400, 330);
+            context.moveTo(400, 330);
             context.lineTo(540, 330);
-            context.moveTo(400, 460);
-            context.lineTo(540, 460);
+            context.moveTo(400, 360);
+            context.lineTo(540, 360);
+            context.moveTo(400, 390);
+            context.lineTo(540, 390);
+            context.moveTo(400, 420);
+            context.lineTo(540, 420);
+            context.moveTo(400, 450);
+            context.lineTo(540, 450);
+            context.font="30px Arial";
+            context.fillText("0x00A1", 550, 356);
+            context.fillText("0x00A2", 550, 386);
+            context.fillText("0x00A3", 550, 416);
+            context.fillText("0x00A4", 550, 446);
+            context.stroke();
+            context.fillText("Heap", 410, 320);
+            context.font="15px Arial";
+            context.fillText("new String(\"asdf\")", 415, 410);
+        }
+        if (i == 17 || debug) {
+            context.moveTo(470, 200);
+            context.lineTo(470, 400);
             context.stroke();
         }
         i++;
