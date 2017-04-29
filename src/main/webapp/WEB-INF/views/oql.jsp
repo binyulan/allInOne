@@ -76,7 +76,7 @@ bound to a JavaScript variable of the identifier name specified in <span class="
 </pre>
 <li>show path value of all File objects
 <pre>
-<code</b>
+<code></b>
     select file.path.value.toString() from java.io.File file
 </code>
 </pre>

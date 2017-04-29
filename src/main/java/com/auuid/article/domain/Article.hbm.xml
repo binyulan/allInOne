@@ -24,7 +24,7 @@
                 <param name="enumClass">com.auuid.article.domain.ArticleType</param>
             </type>
         </property>
-        <set name="comments" table="comment" fetch="join">
+        <set name="comments" table="comment" fetch="join" order-by="post_date desc">
             <key>
                 <column name="article_id" />
             </key>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,7 @@
             <c:forEach items="${article.comments}" var="comment">
                 <div class="panel panel-default">
                     <div class="panel-heading">${comment.postDate}</div>
-                    <div class="panel-body">${comment.content}</div>
+                    <div class="panel-body">${fn:escapeXml(comment.content)}</div>
                 </div>
             </c:forEach>
         </div>

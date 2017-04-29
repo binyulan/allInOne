@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Java, Javascript, Maven"/>
+<meta name="description" content="Java 全栈" />
 <title>首页</title>
 <link type="text/css" rel="stylesheet"
     href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -16,8 +18,7 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li sclass="active"><a href="index">Java</a></li>
-                    <li sclass="active"><a href="index">Linux</a></li>
+                    <li sclass="active"><a href="index">首页</a></li>
                 </ul>
             </div>
         </div>
@@ -43,7 +44,7 @@
             <div id="recentLinux" class="col-sm-6">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Linux</h3>
+                        <h3 class="panel-title">Maven</h3>
                     </div>
                     <ul class="list-group">
                         <c:forEach items="${articles}" var="article">
