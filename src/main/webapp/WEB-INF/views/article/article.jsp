@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="${article.title}"/>
 <meta name="description" content="${article.title}" />
-<title>首页</title>
+<title>${article.title}</title>
 <link href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="../lib/syntaxhighlighter/styles/shCoreDefault.css" />
 <link rel="shortcut icon" type="images/x-icon" href="../icon/person.ico" />
