@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.auuid.article.domain.Article;
+import com.auuid.article.domain.ArticleType;
 import com.auuid.article.service.ArticleService;
 
 @RequestMapping("admin")
@@ -50,7 +51,10 @@ public class ArticleAdminController {
 	}
 	
 	@RequestMapping(value="addArticle", method=RequestMethod.GET)
-	public String addArticle() {
-		return "admin/article";
+	public ModelAndView addArticle() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("articleTypes", ArticleType.values());
+		mv.setViewName("admin/article");
+		return mv;
 	}
 }

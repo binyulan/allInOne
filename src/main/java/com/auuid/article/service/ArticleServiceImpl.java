@@ -32,8 +32,7 @@ public class ArticleServiceImpl implements ArticleService{
 	@Transactional
 	public void save(Article article) {
 		article.setPostDate(new Date());
-		article.setArticleType(ArticleType.LINUX);
-		articleDao.save(article);;
+		articleDao.save(article);
 	}
 
 	@Transactional
