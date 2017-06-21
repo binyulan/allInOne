@@ -29,38 +29,24 @@
     </nav>
     <div id="presentation" class="container-fluid">
         <div class="row">
-            <div id="recentLinux" class="col-sm-6">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Java</h3>
+            <c:forEach items="${indexDto.articleTypes}" var="articleType">
+                <div id="recentLinux" class="col-sm-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">${articleType }</h3>
+                        </div>
+                        <ul class="list-group">
+                            <c:forEach items="${indexDto.articles}" var="article">
+                                <c:if test="${article.articleType==articleType}">
+                                    <li class="list-group-item"><a
+                                        href="article/${article.id}">${article.title}</a>
+                                    </li>
+                                </c:if>
+                            </c:forEach>
+                        </ul>
                     </div>
-                    <ul class="list-group">
-                        <c:forEach items="${indexDto.articles}" var="article">
-                            <c:if test="${article.articleType=='JAVA'}">
-                                <li class="list-group-item"><a
-                                    href="article/${article.id}">${article.title}</a>
-                                </li>
-                            </c:if>
-                        </c:forEach>
-                    </ul>
                 </div>
-            </div>
-            <div id="recentLinux" class="col-sm-6">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Maven</h3>
-                    </div>
-                    <ul class="list-group">
-                        <c:forEach items="${indexDto.articles}" var="article">
-                            <c:if test="${article.articleType=='LINUX'}">
-                                <li class="list-group-item"><a
-                                    href="article/${article.id}">${article.title}</a>
-                                </li>
-                            </c:if>
-                        </c:forEach>
-                    </ul>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </body>
