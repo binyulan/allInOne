@@ -18,7 +18,11 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li sclass="active"><a href="index">首页</a></li>
+                    <li class="active"><a href="index">首页</a></li>
+                    <c:forEach items="${indexDto.articleTypes}" var="articleType">
+                        <li ><a href="index">${articleType}</a></li>
+                    </c:forEach>
+                   
                 </ul>
             </div>
         </div>
@@ -31,7 +35,7 @@
                         <h3 class="panel-title">Java</h3>
                     </div>
                     <ul class="list-group">
-                        <c:forEach items="${articles}" var="article">
+                        <c:forEach items="${indexDto.articles}" var="article">
                             <c:if test="${article.articleType=='JAVA'}">
                                 <li class="list-group-item"><a
                                     href="article/${article.id}">${article.title}</a>
@@ -47,7 +51,7 @@
                         <h3 class="panel-title">Maven</h3>
                     </div>
                     <ul class="list-group">
-                        <c:forEach items="${articles}" var="article">
+                        <c:forEach items="${indexDto.articles}" var="article">
                             <c:if test="${article.articleType=='LINUX'}">
                                 <li class="list-group-item"><a
                                     href="article/${article.id}">${article.title}</a>

@@ -21,12 +21,12 @@ public class ArticleServiceImpl implements ArticleService{
 	
 	@Transactional
 	public List<Article> getArticles() {
-		return articleDao.getArticles();
+		return articleDao.getAll();
 	}
 
 	@Transactional
 	public Article getArticle(Long id) {
-		return articleDao.getArticle(id);
+		return articleDao.getById(id);
 	}
 
 	@Transactional
@@ -38,11 +38,10 @@ public class ArticleServiceImpl implements ArticleService{
 
 	@Transactional
 	public void save(Comment comment) {
-		Article article = articleDao.getArticle(comment.getArticleId());
+		Article article = articleDao.getById(comment.getArticleId());
 		comment.setPostDate(new Date());
 		article.getComments().add(comment);
 		articleDao.save(comment);
 		
 	}
-
 }

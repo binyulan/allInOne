@@ -1,7 +1,5 @@
 package com.auuid.article.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -27,15 +25,6 @@ public class ArticleController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("article", article);
 		mv.setViewName("article/article");
-		return mv;
-	}
-	
-	@RequestMapping("/index")
-	public ModelAndView getArticles() {
-		List<Article> articles = articleService.getArticles();
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("articles", articles);
-		mv.setViewName("index");
 		return mv;
 	}
 	
