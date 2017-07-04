@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 public abstract class BaseDao<T> {
 
 	@Resource
-	private SessionFactory sessionFactory;
+	protected SessionFactory sessionFactory;
 	
 	public Class<T> getClazz() {
 		ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
