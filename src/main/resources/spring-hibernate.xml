@@ -6,18 +6,25 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-
+<!-- 
+        <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+            <property name="user" value="sq_prwqj05681"></property>
+            <property name="password" value="eya239"></property>
+            <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+            <property name="jdbcUrl" value="jdbc:mysql://118.193.134.245:3306/sq_prwqj05681?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+        </bean>
+        -->
         <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
             <property name="user" value="root"></property>
             <property name="password" value="811912"></property>
             <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
             <property name="jdbcUrl" value="jdbc:mysql:///binyulan?useUnicode=true&amp;characterEncoding=UTF-8"></property>
         </bean>
-        
+         
         <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
             <property name="dataSource" ref="dataSource"></property>
             <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
-            <property name="mappingLocations" value="classpath:com/auuid/*/domain/*.hbm.xml"></property>
+            <property name="mappingLocations" value="classpath:com/auuid/**/*.hbm.xml"></property>
         </bean>
         <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
             <property name="sessionFactory" ref="sessionFactory"></property>
