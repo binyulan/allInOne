@@ -37,8 +37,8 @@
                             <option value="">请选择</option>
                             <c:forEach items="${modules}" var="module">
                                 <option value="${module.id}">${module.name}</option>
-                                <c:forEach items="${module.children}" var="module1">
-                                    <option value="${module1.id}">${module1.name}</option>
+                                <c:forEach items="${module.children}" var="module">
+                                    <option value="${module.id}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${module.name}</option>
                                  </c:forEach>
                             </c:forEach>
                         </select>

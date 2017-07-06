@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,7 +17,7 @@ public class ModuleController {
 	@RequestMapping("/resourcemanager")
 	@Transactional
 	public ModelAndView getModules() {
-		List<Module> modules = moduleDao.getAll();
+		List<Module> modules = moduleDao.getRootModules();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("modules", modules);
 		mv.setViewName("resourcemanager/index");
@@ -32,7 +31,7 @@ public class ModuleController {
 			module.setParentModule(null);
 		}
 		moduleDao.save(module);
-		return "resourcemanager/menu/addModuleView";
+		return "redirect:/resourcemanager/addModuleView";
 	}
 	
 	@RequestMapping(value="/resourcemanager/addModuleView", method=RequestMethod.GET)
@@ -40,7 +39,7 @@ public class ModuleController {
 	public ModelAndView addModuleView() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("modules", moduleDao.getRootModules());
-		mv.setViewName("resourcemanager/menu/addModuleView");
+		mv.setViewName("/resourcemanager/menu/addModuleView");
 		return mv;
 	}
 }
