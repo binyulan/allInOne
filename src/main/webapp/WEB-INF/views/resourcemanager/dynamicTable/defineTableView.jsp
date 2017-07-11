@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>首页</title>
+<title>添加表定义</title>
 <link type="text/css" rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link type="images/x-icon" rel="shortcut icon" href="../icon/person.ico" />
 <script type="text/javascript" src="../lib/jquery-3.1.1.min.js"></script>
@@ -44,6 +44,20 @@
                         $("#columnDef div:last").after(cloned);
                     });
                 </script>
+                <div class="form-group">
+                    <label for="module" class="col-sm-1 control-label">块模</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="module" name="module.id">
+                            <option value="">请选择</option>
+                            <c:forEach items="${modules}" var="module">
+                                <option value="${module.id}">${module.name}</option>
+                                <c:forEach items="${module.children}" var="module">
+                                    <option value="${module.id}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${module.name}</option>
+                                 </c:forEach>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-9">
                         <button type="submit" class="btn btn-default">添加表定义</button>

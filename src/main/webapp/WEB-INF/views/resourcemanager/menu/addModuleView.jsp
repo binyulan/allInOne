@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="articleType" class="col-sm-1 control-label">父级模块</label>
+                    <label for="parentModule" class="col-sm-1 control-label">父级模块</label>
                     <div class="col-sm-9">
                         <select class="form-control" id="parentModule" name="parentModule.id">
                             <option value="">请选择</option>
