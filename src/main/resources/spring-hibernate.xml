@@ -18,9 +18,9 @@
         -->
         <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
             <property name="user" value="root"></property>
-            <property name="password" value="811912"></property>
+            <property name="password" value="811912aa"></property>
             <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-            <property name="jdbcUrl" value="jdbc:mysql:///binyulan?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+            <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/binyulan?useUnicode=true&amp;characterEncoding=UTF-8"></property>
         </bean>
          
         <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
