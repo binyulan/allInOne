@@ -1,6 +1,8 @@
 package com.auuid.resourcemanager.dynamictable;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +20,10 @@ public class DynamicTableController {
 	
 	@Autowired DynamicTableDao dynamicTableDao;
 	@Autowired ColumnDao columnDao;
+	@Autowired CellDao cellDao;
 	@Autowired ModuleDao moduleDao;
 	
-	@RequestMapping(value="/resourcemanager/addDefineTableView", method=RequestMethod.GET)
+	@RequestMapping(value="/resourcemanager/defineTableView", method=RequestMethod.GET)
 	@Transactional
 	public ModelAndView addDefineTableView() {
 		ModelAndView mv = new ModelAndView();
@@ -30,22 +33,77 @@ public class DynamicTableController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/resourcemanager/viewTableView/{menuId}", method=RequestMethod.GET)
+	@RequestMapping(value="/resourcemanager/viewTablesView", method=RequestMethod.GET)
 	@Transactional
-	public ModelAndView viewTableView(@PathVariable("id") Long menuId) {
+	public ModelAndView viewTableView() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("dynamicTable", dynamicTableDao.getByMenuId(menuId));
-		mv.setViewName("/resourcemanager/dynamicTable/defineTableView");
+		mv.addObject("dynamicTables", dynamicTableDao.getAll());
+		mv.setViewName("/resourcemanager/dynamicTable/viewTablesView");
 		return mv;
 	}
 	
-	@RequestMapping("/resourcemanager/addDefineTable")
+	@RequestMapping(value="/resourcemanager/queryTable/{id}", method=RequestMethod.GET)
+	@Transactional
+	public ModelAndView viewTableView(@PathVariable("id") Long id, QueryColumnDto queryColumnDto) {
+		ModelAndView mv = new ModelAndView();
+		DynamicTable table = dynamicTableDao.getById(id);
+		for (Column column : table.getColumns()) {
+			if (queryColumnDto.getQueryColumnMap().get(column.getId()) != null) {
+				List<Long> indexes = new ArrayList<Long>();
+				for (int i = 0; i < column.getCells().size(); i++){
+					if (!queryColumnDto.getQueryColumnMap().get(column.getId()).equals(column.getCells().get(i).getValue())) {
+						indexes.add((long) i);
+					}
+				}
+			}
+		}
+		
+		List<DynamicTable> tables = new ArrayList<DynamicTable>();
+		tables.add(table);
+		mv.addObject("dynamicTables", tables);
+		mv.setViewName("/resourcemanager/dynamicTable/viewTablesView");
+		return mv;
+	}
+	
+	@RequestMapping("/resourcemanager/defineTable")
 	@Transactional
 	public String addDynamicTable(DynamicTable dynamicTable) {
 		for (Column column : dynamicTable.getColumns()) {
 			columnDao.save(column);
 		}
 		dynamicTableDao.save(dynamicTable);
-		return "redirect:/resourcemanager/addDefineTableView";
+		return "redirect:/resourcemanager/defineTableView";
+	}
+	
+	@RequestMapping("/resourcemanager/deleteTable/{id}")
+	@Transactional
+	public String deleteTable(@PathVariable("id") Long id) {
+		DynamicTable table = dynamicTableDao.getById(id);
+		for (Column column : table.getColumns()) {
+			columnDao.delete(column);
+		}
+		dynamicTableDao.delete(table);
+		return "redirect:/resourcemanager/viewTablesView";
+	}
+	
+	@RequestMapping(value="/resourcemanager/addRecordView/{id}", method=RequestMethod.GET)
+	@Transactional
+	public ModelAndView addRecordView(@PathVariable("id") Long id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("dynamicTable", dynamicTableDao.getById(id));
+		mv.setViewName("/resourcemanager/dynamicTable/addRecordView");
+		return mv;
+	}
+	
+	@RequestMapping(value="/resourcemanager/addRecord/{id}", method=RequestMethod.POST)
+	@Transactional
+	public String addRecordView(@PathVariable("id") Long id, String[] values) {
+		DynamicTable table = dynamicTableDao.getById(id);
+		for (int i = 0; i < values.length; i++) {
+			Cell cell = new Cell(values[i]);
+			table.getColumns().get(i).getCells().add(cell);
+			cellDao.save(cell);
+		}
+		return "redirect:/resourcemanager/viewTablesView";
 	}
 }

@@ -36,4 +36,10 @@ public abstract class BaseDao<T> {
 		Session session = sessionFactory.getCurrentSession();
 		return (T) session.get(getClazz(), id);
 	}
+	
+	public T delete(T t) {
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(t);
+		return t;
+	}
 }

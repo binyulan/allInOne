@@ -11,5 +11,12 @@
         <property name="name" type="java.lang.String">
             <column name="name" />
         </property>
+        <list name="cells" table="cells">
+            <key>
+                <column name="column_id" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="com.auuid.resourcemanager.dynamictable.Cell" />
+        </list>
     </class>
 </hibernate-mapping>

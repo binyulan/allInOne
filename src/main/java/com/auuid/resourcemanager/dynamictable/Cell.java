@@ -5,6 +5,13 @@ public class Cell {
 	private String name;
 	private String value;
 	private Column column;
+	
+	public Cell() {}
+	public Cell(String value) {
+		super();
+		this.value = value;
+		//this.column = column;
+	}
 	public Long getId() {
 		return id;
 	}
