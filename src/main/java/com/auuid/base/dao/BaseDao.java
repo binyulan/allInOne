@@ -26,6 +26,13 @@ public abstract class BaseDao<T> {
 		session.save(t);
 	}
 	
+	public void batchSave (List<T> list) {
+		Session session = sessionFactory.getCurrentSession();
+		for (T t : list) {
+			 session.save(t);
+		}
+	}
+	
 	public List<T> getAll () {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from " + getClazz().getSimpleName());

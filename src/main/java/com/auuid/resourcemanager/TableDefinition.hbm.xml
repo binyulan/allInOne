@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 8, 2017 2:23:20 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.auuid.resourcemanager.TableDefinition" table="table_definition">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+        <property name="tableName" type="java.lang.String">
+            <column name="table_name" />
+        </property>
+        <list name="columnDefinitions" table="column_definition">
+            <key>
+                <column name="table_definition_id" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="com.auuid.resourcemanager.ColumnDefinition" />
+        </list>
+    </class>
+</hibernate-mapping>
