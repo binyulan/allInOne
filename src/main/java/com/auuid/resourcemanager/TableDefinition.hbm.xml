@@ -15,11 +15,14 @@
             <column name="table_name" />
         </property>
         <list name="columnDefinitions" table="column_definition">
-            <key>
-                <column name="table_definition_id" />
-            </key>
+            <key column="table_definition_id"></key>
             <list-index></list-index>
             <one-to-many class="com.auuid.resourcemanager.ColumnDefinition" />
+        </list>
+        <list name="modules" table="module_tables">
+            <key column="table_id"></key>
+            <list-index></list-index>
+            <many-to-many column="module_id" class="com.auuid.resourcemanager.menu.Module"></many-to-many>
         </list>
     </class>
 </hibernate-mapping>

@@ -11,12 +11,21 @@
         <property name="name" type="java.lang.String">
             <column name="name" not-null="true"/>
         </property>
-        <set name="children" table="modules">
+        <property name="idx" type="java.lang.Integer">
+            <column name="idx"/>
+        </property>
+        <list name="children" table="modules">
             <key><column name="parent_id" /></key>
+            <list-index></list-index>
             <one-to-many class="com.auuid.resourcemanager.menu.Module" />
-        </set>
+        </list>
         <many-to-one name="parentModule" class="com.auuid.resourcemanager.menu.Module" fetch="join">
             <column name="parent_id" />
         </many-to-one>
+        <list name="tableDefinitions" table="module_tables">
+            <key column="module_id"></key>
+            <list-index></list-index>
+            <many-to-many column="table_id" class="com.auuid.resourcemanager.TableDefinition"></many-to-many>
+        </list>
     </class>
 </hibernate-mapping>

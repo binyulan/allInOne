@@ -45,6 +45,20 @@
                     });
                 </script>
                 <div class="form-group">
+                    <label for="modules" class="col-sm-1 control-label">所属模块</label>
+                    <div class="col-sm-9">
+                        <select multiple class="form-control" id="modules" name="moduleIds">
+                            <option value="">请选择</option>
+                            <c:forEach items="${modules}" var="module">
+                                <option value="${module.id}">${module.name}</option>
+                                <c:forEach items="${module.children}" var="module">
+                                    <option value="${module.id}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${module.name}</option>
+                                 </c:forEach>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-9">
                         <button type="submit" class="btn btn-default">添加表定义</button>
                     </div>

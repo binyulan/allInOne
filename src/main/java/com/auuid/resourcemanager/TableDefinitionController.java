@@ -1,5 +1,6 @@
 package com.auuid.resourcemanager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,12 @@ public class TableDefinitionController {
 	
 	@RequestMapping("/resourcemanager/tableDefinition/defineTable")
 	@Transactional
-	public String defineTable(TableDefinition tableDefinition) {
+	public String defineTable(TableDefinition tableDefinition, Long[] moduleIds) {
+		List<Module> modules = new ArrayList<Module>();
+		for (Long moduleId : moduleIds) {
+			modules.add(moduleDao.getById(moduleId));
+		}
+		tableDefinition.setModules(modules);
 		tableDefinitionDao.createTable(tableDefinition);
 		return "redirect:/resourcemanager/tableDefinition/defineTableView";
 	}

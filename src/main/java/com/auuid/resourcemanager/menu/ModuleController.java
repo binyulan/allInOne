@@ -29,8 +29,12 @@ public class ModuleController {
 	public String addModule(Module module) {
 		if (module.getParentModule().getId() == null) {
 			module.setParentModule(null);
+		} else {
+			Integer idx = moduleDao.getById(module.getParentModule().getId()).getChildren().size();
+			module.setIdx(idx);
 		}
 		moduleDao.save(module);
+		
 		return "redirect:/resourcemanager/addModuleView";
 	}
 	
