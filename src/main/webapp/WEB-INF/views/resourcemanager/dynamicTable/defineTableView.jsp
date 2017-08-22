@@ -32,6 +32,20 @@
                         <button type="button" id="addColumn" class="btn btn-default">添加列</button>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="parentModule" class="col-sm-1 control-label">所属模块</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="module" name="module.id">
+                            <option value="">请选择</option>
+                            <c:forEach items="${modules}" var="module">
+                                <option value="${module.id}">${module.name}</option>
+                                <c:forEach items="${module.children}" var="module">
+                                    <option value="${module.id}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${module.name}</option>
+                                 </c:forEach>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
                 <script type="text/javascript">
                     $("#addColumn").click(function(){
                         var cloned = $("#columnDef div:last").clone();

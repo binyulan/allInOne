@@ -19,7 +19,7 @@
             <a href="deleteTable/${table.id}">删除表</a>
             <a href="addRecordView/${table.id}">添加数据</a>
             <div>
-                <form action="queryTable/${table.id}">
+                <form action="queryTable/${table.id}" method="post">
                     <c:forEach items="${table.columns}" var="column">
                         ${column.name}<input type="text" name="queryColumnMap[${column.id}]"><br>
                     </c:forEach>

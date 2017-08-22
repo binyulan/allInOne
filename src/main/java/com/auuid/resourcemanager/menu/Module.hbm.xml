@@ -14,11 +14,10 @@
         <property name="idx" type="java.lang.Integer">
             <column name="idx"/>
         </property>
-        <list name="children" table="modules">
+        <set name="children" table="modules">
             <key><column name="parent_id" /></key>
-            <list-index></list-index>
             <one-to-many class="com.auuid.resourcemanager.menu.Module" />
-        </list>
+        </set>
         <many-to-one name="parentModule" class="com.auuid.resourcemanager.menu.Module" fetch="join">
             <column name="parent_id" />
         </many-to-one>

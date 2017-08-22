@@ -1,13 +1,14 @@
 package com.auuid.resourcemanager.menu;
 
 import java.util.List;
+import java.util.Set;
 
 import com.auuid.resourcemanager.TableDefinition;
 
 public class Module {
 	private Long id;
 	private String name;
-	private List<Module> children;
+	private Set<Module> children;
 	private Module parentModule;
 	private List<TableDefinition> tableDefinitions;
 	private Integer idx;
@@ -30,10 +31,10 @@ public class Module {
 	public void setParentModule(Module parentModule) {
 		this.parentModule = parentModule;
 	}
-	public List<Module> getChildren() {
+	public Set<Module> getChildren() {
 		return children;
 	}
-	public void setChildren(List<Module> children) {
+	public void setChildren(Set<Module> children) {
 		this.children = children;
 	}
 	public List<TableDefinition> getTableDefinitions() {

@@ -9,6 +9,9 @@
 <link type="text/css" rel="stylesheet"
     href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link type="images/x-icon" rel="shortcut icon" href="../icon/person.ico" />
+<script type="text/javascript" src="../lib/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 
 <body style="background-color: #fff;">
@@ -47,6 +50,35 @@
                 <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-9">
                         <button type="submit" class="btn btn-default">添加模块</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <form class="form-horizontal" action="modifyModule" method="post">
+                <div class="form-group">
+                    <ul>
+                        <c:forEach items="${modules}" var="module">
+                            <li value="${module.id}" data-toggle="collapse" data-target="[data-group=${module.id}]" style="list-style-type:none; cursor: pointer;">
+                                <div class="label label-default"><c:if test="${module.children.size() > 0}">+ </c:if>${module.name}</div>
+                                <ul data-name="innerUl">
+                                    <c:forEach items="${module.children}" var="subModule">
+                                        <li data-group="${module.id}" class="collapse" value="${subModule.id}">
+                                            <span class="label label-default">${subModule.name}</span>
+                                        </li>
+                                    </c:forEach>
+                                </ul>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    $( "ul" ).sortable();
+                    $("ul[data-name='innerUl']").bind("click", function(){return false})
+                </script>
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-9">
+                        <button type="submit" class="btn btn-default">修改模块</button>
                     </div>
                 </div>
             </form>
