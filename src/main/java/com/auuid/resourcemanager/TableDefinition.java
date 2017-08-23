@@ -1,6 +1,7 @@
 package com.auuid.resourcemanager;
 
 import java.util.List;
+import java.util.Set;
 
 import com.auuid.resourcemanager.menu.Module;
 
@@ -9,7 +10,7 @@ public class TableDefinition {
 	private String description;
 	private String tableName;
 	private List<ColumnDefinition> columnDefinitions;
-	private List<Module> modules;
+	private Set<Module> modules;
 	public Long getId() {
 		return id;
 	}
@@ -34,10 +35,10 @@ public class TableDefinition {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public List<Module> getModules() {
+	public Set<Module> getModules() {
 		return modules;
 	}
-	public void setModules(List<Module> modules) {
+	public void setModules(Set<Module> modules) {
 		this.modules = modules;
 	}
 }

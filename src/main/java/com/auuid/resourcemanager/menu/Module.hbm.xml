@@ -21,10 +21,9 @@
         <many-to-one name="parentModule" class="com.auuid.resourcemanager.menu.Module" fetch="join">
             <column name="parent_id" />
         </many-to-one>
-        <list name="tableDefinitions" table="module_tables">
+        <set name="tableDefinitions" table="module_tables">
             <key column="module_id"></key>
-            <list-index></list-index>
             <many-to-many column="table_id" class="com.auuid.resourcemanager.TableDefinition"></many-to-many>
-        </list>
+        </set>
     </class>
 </hibernate-mapping>

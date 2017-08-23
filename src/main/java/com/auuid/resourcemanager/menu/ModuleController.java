@@ -31,7 +31,7 @@ public class ModuleController {
 		return mv;
 	}
 	
-	@RequestMapping("/resourcemanager/addModule")
+	@RequestMapping(value="/resourcemanager/addModule", method = RequestMethod.POST)
 	@Transactional
 	public String addModule(Module module) {
 		if (module.getParentModule().getId() == null) {
@@ -42,7 +42,7 @@ public class ModuleController {
 		return "redirect:/resourcemanager/addModuleView";
 	}
 	
-	@RequestMapping(value="/resourcemanager/addModuleView", method=RequestMethod.GET)
+	@RequestMapping(value="/resourcemanager/addModuleView", method = RequestMethod.GET)
 	@Transactional
 	public ModelAndView addModuleView() {
 		ModelAndView mv = new ModelAndView();
@@ -57,6 +57,7 @@ public class ModuleController {
 		TableDefinition tableDefinition = tableDefinitionDao.getById(tableId);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("tableDefinition", tableDefinition);
+		mv.addObject("tableData", tableDefinitionDao.getTableData(tableId));
 		mv.addObject("modules", moduleDao.getRootModules());
 		mv.setViewName("/resourcemanager/index");
 		return mv;

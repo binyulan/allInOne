@@ -10,7 +10,7 @@ public class Module {
 	private String name;
 	private Set<Module> children;
 	private Module parentModule;
-	private List<TableDefinition> tableDefinitions;
+	private Set<TableDefinition> tableDefinitions;
 	private Integer idx;
 	
 	public Long getId() {
@@ -37,10 +37,10 @@ public class Module {
 	public void setChildren(Set<Module> children) {
 		this.children = children;
 	}
-	public List<TableDefinition> getTableDefinitions() {
+	public Set<TableDefinition> getTableDefinitions() {
 		return tableDefinitions;
 	}
-	public void setTableDefinitions(List<TableDefinition> tableDefinitions) {
+	public void setTableDefinitions(Set<TableDefinition> tableDefinitions) {
 		this.tableDefinitions = tableDefinitions;
 	}
 	public Integer getIdx() {
