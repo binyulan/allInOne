@@ -1,0 +1,93 @@
+JavaScript变量定义，常量定义以及其作用域
+
+<p><strong>一. JavaScript变量定义</strong></p>
+<p style="padding-left: 20px">1. 定义全局变量</p>
+<pre class="prettyprint" style="margin-left: 20px">
+age1 = 99;
+console.info(window.age1); //输出99
+</pre>
+<p style="padding-left: 20px">
+这里定义了一个全局变量，可以使用window.name获取其值
+</p>
+
+<p style="padding-left: 20px">2. 使用var定义变量</p>
+<pre class="prettyprint" style="margin-left: 20px">
+var age2 = 99
+console.info(age2); //输出99
+</pre>
+<p style="padding-left: 20px">可以先使用，再定义（不推荐使用）</p>
+<pre class="prettyprint" style="margin-left: 20px">
+age3 = 10;
+console.info(age3); //输出10
+var age3 = 99
+console.info(age3); //输出99;
+
+console.info(age4); //输出undefined
+var age4 = 99
+console.info(age4); //输出99;
+</pre>
+<p style="padding-left: 20px">3. 使用let(ES6)定义变量，其具有块儿级作用域，见下面的作用域讲解</p>
+<pre class="prettyprint" style="margin-left: 20px">
+let age5 = 99
+console.info(age5); //输出99
+</pre>
+
+<p><strong>二. JavaScript常量定义</strong></p>
+<p style="padding-left: 20px">使用const定义常量</p>
+<pre class="prettyprint" style="margin-left: 20px">
+const PI = 3.14; // 常量一般用大写，如果有多个词就用下划线链接，例如 const WAIT_TIME = 600;
+console.info(PI); //输出3.14
+PI = 9; //常量不可以更改，否则抛出异常 TypeError: Assignment to constant variable.
+</pre>
+
+<p><strong>三. JavaScript变量的作用域</strong></p>
+<p style="padding-left: 20px">
+JavaScript有三种作用域：全局作用域，函数作用域，块儿级别作用域(ES6)
+</p>
+<p style="padding-left: 20px">1. 全局作用域</p>
+<p style="padding-left: 20px">全局变量拥有全局作用域，在任何地方都可以使用</p>
+<pre class="prettyprint" style="margin-left: 20px">
+scope = "global"; //不使用任何关键字定义的变量是全局变量, 并且作为window对象的属性
+var scope1 = "global1"; //使用var也可以定义全局变量, 并且作为window对象的属性
+let scope2 = "global2"; //使用let也可以定义全局变量"，但是不作为window对象的属性
+function checkscope() {
+    console.info(scope); //输出global
+    console.info(window.scope); //输出global
+    console.info(scope1); //输出global1
+    console.info(window.scope1); //输出global1
+    console.info(scope2); //输出global2
+    console.info(window.scope2); //输出undefined，不作为window对象的属性
+}
+checkscope();
+</pre>
+<p style="padding-left: 20px">2. 函数作用域</p>
+<p style="padding-left: 20px">在函数体内定义的变量拥有函数作用域，只可以在函数体内使用</p>
+<pre class="prettyprint" style="margin-left: 20px">
+function checkscope() {
+    var scope = "local";
+    console.info(scope);
+}
+checkscope(); //输出local，函数体内定义的变量在函数体内可以使用
+console.info(scope); //函数体外不能使用，抛出异常，ReferenceError: scope is not defined
+</pre>
+<p style="padding-left: 20px">3. 块儿级作用域(ES6)</p>
+<p style="padding-left: 20px">使用let定义的变量具有块儿级作用域，只在代码块中可以使用</p>
+<pre class="prettyprint" style="margin-left: 20px">
+{
+    let scope = "block";
+    console.info(scope); //输出block
+}
+console.info(scope); //抛出异常，ReferenceError: scope is not defined
+</pre>
+<p><strong>四. 作用域链</strong></p>
+<p style="padding-left: 20px">
+作用域链是存储对象的链表，链表中的对象是存储全局作用域或者函数作用域中的变量的对象。 每段JavaScript代码（全局代码，函数）都有一个与之关联的作用域链
+全局代码的作用域链只有一个对象，就是全局对象。
+</p>
+<p style="padding-left: 20px">
+函数定义的时候会保存一个与之关联的作用域链，函数调用的时候创建一个新的对象保存函数作用域内的局部变量，并且把这个新的函数保存到作用域链上。
+</p>
+<p style="padding-left: 20px">
+文章描述略感苍白，使用实例以及动画演示下就很清楚了。
+</p>
+
