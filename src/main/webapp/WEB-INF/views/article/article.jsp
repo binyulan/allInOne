@@ -17,6 +17,7 @@
 <script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shCore.js"></script>
 <script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shBrushXml.js"></script>
 <script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shBrushJScript.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all();
 </script>
