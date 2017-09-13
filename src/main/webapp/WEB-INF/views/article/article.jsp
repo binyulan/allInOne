@@ -9,20 +9,14 @@
 <meta name="keywords" content="${article.title}"/>
 <meta name="description" content="${article.title}" />
 <title>${article.title}</title>
-<link href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="../lib/syntaxhighlighter/styles/shCoreDefault.css" />
 <link rel="shortcut icon" type="images/x-icon" href="../icon/person.ico" />
+<link href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="../lib/google-code-prettify/prettify.css" />
 <script type="text/javascript" src="../lib/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shCore.js"></script>
-<script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shBrushXml.js"></script>
-<script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shBrushJava.js"></script>
-<script type="text/javascript" src="../lib/syntaxhighlighter/scripts/shBrushJScript.js"></script>
-<script type="text/javascript">
-	SyntaxHighlighter.all();
-</script>
+<script type="text/javascript" src="../lib/google-code-prettify/prettify.js"></script>
 </head>
-<body style="background-color: #fff">
+<body style="background-color: #fff" onload="PR.prettyPrint()">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div>

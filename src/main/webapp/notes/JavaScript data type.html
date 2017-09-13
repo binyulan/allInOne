@@ -1,6 +1,6 @@
 <p><strong>一.  number</strong></p>
 <p style="padding-left: 20px">1. 数字直接量
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 /**
  * 数字直接量
  */
@@ -16,7 +16,7 @@ var num8 = 2E-2; //值是0.02，2 * 10^-2
 </pre>
 </p>
 <p style="padding-left: 20px">2. 数字运算
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 /**
  * 数字运算
  */
@@ -28,7 +28,7 @@ var num13 = 1 % 2; //取余，值为0
 </pre>
 </p>
 <p style="padding-left: 20px">3. 扩展阅读
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 /**
  * 扩展阅读
  */
@@ -42,7 +42,7 @@ var val6 = isFinite(1 / -0); //返回true,全局函数isFinite可以判断是否
 </p>
 <p><strong>二. string</strong></p>
 <p style="padding-left: 20px">1. 字符串直接量
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 /**
  * 字符串直接量，可以使用单引号，也可以使用双引号
  */
@@ -53,12 +53,12 @@ var str3 = 'it\'s correct'; //单引号包裹，必须使用右斜线\转移
 </pre>
 </p>
 <p style="padding-left: 20px">2. 转义字符
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 /**
  * 使用右斜线加一个字符来转义字符
  */
 var str4 = "line1\nline2"; //换行符\n
-var str8 = "\\"; //右斜线本身\
+var str5 = "\\"; //右斜线本身\
 var str6 = "it\'s correct"; //单引号\'
 var str7 = "it\"s correct"; //双引号\"
 var str8 = "\x41"; // \x后面跟两位16进制数，ascii码表里面可以查到这个是大写字母A
@@ -67,12 +67,12 @@ var str9 = "\u03c0"; // \x后面跟四位16进制数，Unicode码表里面可以
 </p>
 <p><strong>三. boolean</strong></p>
 <p style="padding-left: 20px">1. 只有两个值, true 和 false
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 typeof true; //返回boolean
 </pre>
 </p>
 <p style="padding-left: 20px">1. 下列值转为boolean时为false
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 var toFalse1 = undefined
 var toFalse2 = null
 var toFalse3 = 0
@@ -83,7 +83,7 @@ var toFalse6 = ""
 </p>
 <p><strong>四. undefined</strong></p>
 <p style="padding-left: 20px">1. 只有一个值 undefined，表示变量没有初始化
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 typeof undefined // 返回undefined，说明undefined是一种类型
 var var1;
 console.info(var1); // 返回undefined
@@ -94,26 +94,26 @@ console.info(window.hasOwnProperty("undefined")); //返回ture，说明undefined
 </p>
 <p><strong>五. object</strong></p>
 <p style="padding-left: 20px">1. 定义对象
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 var obj1 = {name : "tom", age : "90"};
 typeof obj1; // 返回值 object
 console.info(obj1.name); //返回值 tom 
 </pre>
 </p>
 <p style="padding-left: 20px">2. null 表示指向一个空的对象
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 var obj2 = null;
 typeof obj; // 返回object
 </pre>
 </p>
 <p style="padding-left: 20px">3. 数组也是对象
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 var obj3 = [1, 2, 3, 4];
 typeof obj3; //返回object
 </pre>
 </p>
 <p style="padding-left: 20px">4. 函数也是一种特殊的对象
-<pre class="brush: js">
+<pre class="prettyprint" style="margin-left: 20px">
 var obj4 = function(p1, p2){};
 typeof obj4; //返回 function，但是函数其实也是对象类型
 console.info(obj3.length); //返回 2，length属性表示的是函数参数的个数
