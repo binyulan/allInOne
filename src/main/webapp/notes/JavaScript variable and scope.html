@@ -88,6 +88,28 @@ console.info(scope); //抛出异常，ReferenceError: scope is not defined
 函数定义的时候会保存一个与之关联的作用域链，函数调用的时候创建一个新的对象保存函数作用域内的局部变量，并且把这个新的函数保存到作用域链上。
 </p>
 <p style="padding-left: 20px">
-文章描述略感苍白，使用实例以及动画演示下就很清楚了。
+程序查找变量的时候，从作用域的最底层来时寻找，一直找到最顶层(浏览器端的最顶层为window)，如果找不到则抛出异常。
 </p>
-
+<p style="padding-left: 20px">
+文字描述作用域链略感苍白，下面用视频讲解以下实例。点击按钮观看视频
+</p>
+<pre class="prettyprint" style="margin-left: 20px">
+var scope = "inGlobal"
+var fun1 = function(p1, p2){
+    var scope1 = "inFun1";
+    var fun2 = function(p3, p4){
+        var scope2 = "inFun2";
+        console.info(scope2); //输出inFun2
+        console.info(scope1); //输出inFun1
+        console.info(scope); //输出inGlobal
+        console.info(p1); //输出I am p1
+        console.info(p3); //第一次输出I am p3，第二次输出I am p3 too
+    }
+    fun2("I am p3");
+    fun2("I am p3 too");
+}
+fun1("I am p1");
+</pre>
+<a class="btn btn-primary" style="cursor: pointer;"
+onclick='$("#video5").html("<video style=\"width:620px;\" controls=\"controls\" src=\"video/hibernate-1.5.mp4\"></video>")'>见视频操作，可最大化</a>
+<p id="video5"></p>
