@@ -33,7 +33,7 @@ public class ArticleController {
 		articleService.save(comment);
 	}
 	
-	@RequestMapping(value="/{path}")
+	//@RequestMapping(value="/{path}")
 	public ModelAndView redirectTo(@PathVariable("path") String path) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(path);
