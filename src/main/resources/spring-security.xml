@@ -4,8 +4,14 @@
     xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <http pattern="/loginView" security="none" />
     <http auto-config="true">
-        <intercept-url pattern="/admin**" access="hasRole('ADMIN')" />
+        <csrf disabled="true"/>
+        <form-login login-page="/loginView" username-parameter="username"
+             password-parameter="password" />
+        <intercept-url pattern="/icon/*.ico" access="permitAll" />
+        <intercept-url pattern="/**" access="hasRole('ADMIN')" />
+        
     </http>
 
     <authentication-manager>
