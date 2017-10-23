@@ -15,12 +15,8 @@
     </http>
 
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="brady" password="123456" authorities="ROLE_USER" />
-                <user name="admin" password="123456" authorities="ROLE_ADMIN" />
-            </user-service>
-        </authentication-provider>
+        <authentication-provider user-service-ref="customUserService" />
     </authentication-manager>
-
+    
+    <beans:bean id="customUserService" class="com.auuid.security.CustomUserService"></beans:bean>
 </beans:beans>
