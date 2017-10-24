@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-10-25 0:10:43 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.auuid.security.User" table="users">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="username" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" />
+        </property>
+        <set name="roles" table="users_roles">
+            <key>
+                <column name="user_id" />
+            </key>
+            <many-to-many column="role_id" class="com.auuid.security.Role" />
+        </set>
+    </class>
+</hibernate-mapping>
