@@ -11,7 +11,7 @@
         <property name="name" type="java.lang.String">
             <column name="name" />
         </property>
-        <set name="resources" table="roles_resources">
+        <set name="resources" table="roles_resources" lazy="false">
             <key>
                 <column name="role_id" />
             </key>

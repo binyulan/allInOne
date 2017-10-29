@@ -8,14 +8,29 @@
         <csrf disabled="true"/>
         <form-login login-page="/loginView" username-parameter="username"
              password-parameter="password" />
-        <intercept-url pattern="/icon/*.ico" access="permitAll" />
-        <intercept-url pattern="/loginView" access="permitAll" />
-        <intercept-url pattern="/**" access="hasRole('ADMIN')" />
+        <custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="filterSecurityInterceptor" />
     </http>
 
-    <authentication-manager>
+    <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="customUserService" />
     </authentication-manager>
+    <beans:bean id="customUserService" class="com.auuid.security.CustomUserService" />
     
-    <beans:bean id="customUserService" class="com.auuid.security.CustomUserService"></beans:bean>
+    <beans:bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+        <beans:constructor-arg name="decisionVoters">
+            <beans:list>  
+                <beans:ref bean="roleVoter" />
+                <beans:ref bean="authenticatedVoter" />
+            </beans:list>  
+        </beans:constructor-arg>  
+    </beans:bean>
+    <beans:bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter" />
+    <beans:bean id="authenticatedVoter" class="org.springframework.security.access.vote.AuthenticatedVoter" />  
+    <beans:bean id="filterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">  
+        <beans:property name="authenticationManager" ref="authenticationManager" />
+        <beans:property name="accessDecisionManager" ref="accessDecisionManager" />
+        <beans:property name="securityMetadataSource" ref="securityMetadataSource" />
+    </beans:bean>
+    
+    <beans:bean id="securityMetadataSource" class="com.auuid.security.SecurityMetadataSource"/>
 </beans:beans>
