@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.auuid.resourcemanager.menu.Module;
 import com.auuid.resourcemanager.menu.ModuleDao;
 
+@RequestMapping(value="service")
 @Controller
 public class TableDefinitionController {
 	

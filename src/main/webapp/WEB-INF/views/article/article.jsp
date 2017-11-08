@@ -9,19 +9,19 @@
 <meta name="keywords" content="${article.title}"/>
 <meta name="description" content="${article.title}" />
 <title>${article.title}</title>
-<link rel="shortcut icon" type="images/x-icon" href="../icon/person.ico" />
-<link href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="../lib/google-code-prettify/prettify.css" />
-<script type="text/javascript" src="../lib/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../lib/google-code-prettify/prettify.js"></script>
+<link rel="shortcut icon" type="images/x-icon" href="/icon/person.ico" />
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/prettify/r298/prettify.min.css" />
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/prettify/r298/prettify.min.css"></script>
 </head>
 <body style="background-color: #fff" onload="PR.prettyPrint()">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li data-id="java" class="active"><a href="../index">Java</a></li>
+                    <li data-id="java" class="active"><a href="/index">Java</a></li>
                 </ul>
             </div>
         </div>

@@ -8,9 +8,8 @@
 <meta name="keywords" content="Java, Javascript, Maven"/>
 <meta name="description" content="Java 全栈" />
 <title>首页</title>
-<link type="text/css" rel="stylesheet"
-    href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link type="images/x-icon" rel="shortcut icon" href="icon/person.ico" />
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link type="images/x-icon" rel="shortcut icon" href="/icon/person.ico" />
 </head>
 
 <body style="background-color: #fff;">
@@ -18,9 +17,9 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index">首页</a></li>
+                    <li class="active"><a href="/index">首页</a></li>
                     <c:forEach items="${indexDto.articleTypes}" var="articleType">
-                        <li ><a href="index">${articleType}</a></li>
+                        <li ><a href="/index">${articleType.name}</a></li>
                     </c:forEach>
                    
                 </ul>
@@ -33,7 +32,7 @@
                 <div id="recentLinux" class="col-sm-6">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title">${articleType }</h3>
+                            <h3 class="panel-title">${articleType.name }</h3>
                         </div>
                         <ul class="list-group">
                             <c:forEach items="${indexDto.articles}" var="article">

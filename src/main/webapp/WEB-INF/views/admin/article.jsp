@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="addArticleView">添加文章</a></li>
+                    <li class="active"><a href="addArticle">添加文章</a></li>
                 </ul>
             </div>
         </div>

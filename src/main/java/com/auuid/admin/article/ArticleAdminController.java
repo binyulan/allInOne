@@ -14,7 +14,7 @@ import com.auuid.article.domain.Article;
 import com.auuid.article.domain.ArticleType;
 import com.auuid.article.service.ArticleService;
 
-@RequestMapping("admin")
+@RequestMapping("service")
 @Controller
 public class ArticleAdminController {
 
@@ -46,8 +46,9 @@ public class ArticleAdminController {
 	}
 	
 	@RequestMapping(value="article", method=RequestMethod.POST)
-	public void saveArticle(Article article) {
+	public String saveArticle(Article article) {
 		articleService.save(article);
+		return "redirect: addArticle";
 	}
 	
 	@RequestMapping(value="addArticle", method=RequestMethod.GET)

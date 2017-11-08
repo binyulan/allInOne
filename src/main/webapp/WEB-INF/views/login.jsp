@@ -10,12 +10,13 @@
 <title>首页</title>
 <link type="text/css" rel="stylesheet"
     href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link type="images/x-icon" rel="shortcut icon" href="icon/person.ico" />
+<link type="images/x-icon" rel="shortcut icon" href="/icon/person.ico" />
 </head>
 
 <body style="background-color: #fff;">
     <div id="presentation" class="container-fluid">
-      <form action="login" method="post">
+      <form action="/login" method="post">
+          <input type="hidden" name="url" value="${url}">
           <table>
              <tr>
                 <td>用户名：</td>
