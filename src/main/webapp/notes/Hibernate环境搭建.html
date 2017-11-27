@@ -1,0 +1,252 @@
+<p><strong>一. 新建Maven工程</strong></p>
+<p>使用快捷键 <kbd>Ctrl + N</kbd> 打开窗口后，在Wizards框中输入maven，选择Maven Project。</p>
+<p>点击Next，选择 maven-archetype-quickstart 1.1。点击Next，Group id输入com.auuid，Artifact输入hibernate。点击Finish。</p>
+
+<p><strong>二. 引入hibernate依赖</strong></p>
+<pre class="brush: xml" style="margin-left: 20px">
+&ltdependency>
+    &ltgroupId>junit&lt/groupId>
+    &ltartifactId>junit&lt/artifactId>
+    &ltversion>4.11&lt/version>
+    &ltscope>test&lt/scope>
+&lt/dependency>
+&ltdependency>
+    &ltgroupId>org.hibernate&lt/groupId>
+    &ltartifactId>hibernate-core&lt/artifactId>
+    &ltversion>4.3.2.Final&lt/version>
+&lt/dependency>
+&ltdependency>
+    &ltgroupId>mysql&lt/groupId>
+    &ltartifactId>mysql-connector-java&lt/artifactId>
+    &ltversion>5.1.38&lt/version>
+&lt/dependency>
+</pre>
+
+<p><strong>三. hibernate配置文件: hibernate.cfg.xml</strong></p>
+<pre class="brush: xml" style="margin-left: 20px">
+&lt?xml version="1.0" encoding="UTF-8"?>
+&lt!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+&lthibernate-configuration>
+    &ltsession-factory>
+        &lt!-- 数据库驱动名称 -->
+        &ltproperty name="hibernate.connection.driver_class">com.mysql.jdbc.Driver&lt/property>
+        &lt!-- 数据库链接地址 -->
+        &ltproperty name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate&lt/property>
+        &lt!-- 数据库用户名称 -->
+        &ltproperty name="hibernate.connection.username">root&lt/property>
+        &lt!-- 数据库密码 -->
+        &ltproperty name="connection.password">123456&lt/property>
+        &lt!-- 设置数据库SQL语言类型 -->
+        &ltproperty name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect&lt/property>
+        &lt!-- 设置是否显示SQL语句-->
+        &ltproperty name="show_sql">true&lt/property>
+        &lt!-- 设置是否格式化SQL语句 -->
+        &ltproperty name="format_sql">true&lt/property>
+        &lt!-- 自动建表  取值有四种：
+            create: 根据映射文件生成表， 每次执行都删除之前创建过的表
+            create-drop: 根据映射文件生成表，每次执行完毕都会删除表
+            update: 根据映射文件生成表，若以后表结构与映射文件不同，则更新表结构，但不会删除之前的记录，也不会删除映射文件中不存在的列
+            validate: 不会根据映射文件生成表，只会校验映射文件和表结构是否一致，不一致则抛异常
+        -->
+        &ltproperty name="hbm2ddl.auto">update&lt/property>
+        &lt!-- 引入映射文件 -->
+        &ltmapping resource="com/auuid/hibernate/domain/Article.hbm.xml"/>
+    &lt/session-factory>
+&lt/hibernate-configuration>
+</pre>
+
+<p><strong>四. 编写测试domain对象</strong></p>
+<pre class="brush: java" style="margin-left: 20px">
+package com.auuid.hibernate.domain;
+
+public class Article {
+
+    private Long id;
+    private String title;
+    private String content;
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getContent() {
+        return content;
+    }
+    public void setContent(String content) {
+        this.content = content;
+    }
+}
+</pre>
+
+Article的映射文件Article.hbm.xml
+<pre class="brush: xml" style="margin-left: 20px">
+&lt?xml version="1.0" encoding="UTF-8"?>
+&lt!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+&lthibernate-mapping>
+    &ltclass name="com.auuid.hibernate.domain.Article" table="articles">
+        &ltid name="id" type="long">
+            &ltcolumn name="id" />
+            &ltgenerator class="native" />
+        &lt/id>
+        &ltproperty name="title" type="string">
+            &ltcolumn name="title" />
+        &lt/property>
+        &ltproperty name="content" type="string">
+            &ltcolumn name="content" />
+        &lt/property>
+    &lt/class>
+&lt/hibernate-mapping>
+</pre>
+<table class="table table-striped table-bordered table-hover" style="margin-left: 40px; width: 40%">
+    <thead>
+        <tr>
+            <th>映射类型</th>
+            <th>Java 类型</th>
+            <th>ANSI SQL 类型</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>integer</td>
+            <td>int 或 java.lang.Integer</td>
+            <td>INTEGER</td>
+        </tr>
+        <tr>
+            <td>long</td>
+            <td>long 或 java.lang.Long</td>
+            <td>BIGINT</td>
+        </tr>
+        <tr>
+            <td>short</td>
+            <td>short 或 java.lang.Short</td>
+            <td>SMALLINT</td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>float 或 java.lang.Float</td>
+            <td>FLOAT</td>
+        </tr>
+        <tr>
+            <td>double</td>
+            <td>double 或 java.lang.Double</td>
+            <td>DOUBLE</td>
+        </tr>
+        <tr>
+            <td>big_decimal</td>
+            <td>java.math.BigDecimal</td>
+            <td>NUMERIC</td>
+        </tr>
+        <tr>
+            <td>character</td>
+            <td>java.lang.String</td>
+            <td>CHAR(1)</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>java.lang.String</td>
+            <td>VARCHAR</td>
+        </tr>
+        <tr>
+            <td>byte</td>
+            <td>byte 或 java.lang.Byte</td>
+            <td>TINYINT</td>
+        </tr>
+        <tr>
+            <td>boolean</td>
+            <td>boolean 或 java.lang.Boolean</td>
+            <td>BIT</td>
+        </tr>
+        <tr>
+            <td>yes/no</td>
+            <td>boolean 或 java.lang.Boolean</td>
+            <td>CHAR(1) ('Y' or 'N')</td>
+        </tr>
+        <tr>
+            <td>true/false</td>
+            <td>boolean 或 java.lang.Boolean</td>
+            <td>CHAR(1) ('T' or 'F')</td>
+        </tr>
+        <tr>
+            <td>date</td>
+            <td>java.util.Date 或 java.sql.Date</td>
+            <td>DATE</td>
+        </tr>
+        <tr>
+            <td>time</td>
+            <td>java.util.Date 或 java.sql.Time</td>
+            <td>TIME</td>
+        </tr>
+        <tr>
+            <td>timestamp</td>
+            <td>java.util.Date 或 java.sql.Timestamp</td>
+            <td>TIMESTAMP</td>
+        </tr>
+        <tr>
+            <td>calendar</td>
+            <td>java.util.Calendar</td>
+            <td>TIMESTAMP</td>
+        </tr>
+        <tr>
+            <td>calendar_date</td>
+            <td>java.util.Calendar</td>
+            <td>DATE</td>
+        </tr>
+    </tbody>
+</table>
+<p><strong>五：编写测试类</strong></p>
+<pre class="brush: java" style="margin-left: 20px">
+package com.auuid.hibernate;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.auuid.hibernate.domain.Article;
+
+public class SimpleTest {
+    
+    private Session session;
+    private SessionFactory sessionFactory;
+    private Transaction transaction;
+    @Before
+    public void init(){
+        Configuration cfg = new Configuration().configure();
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
+        sessionFactory = cfg.buildSessionFactory(serviceRegistry);
+        session = sessionFactory.openSession();
+        transaction = session.beginTransaction();
+    }
+
+    @After
+    public void destory(){
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+    }
+    
+    @Test
+    public void testSave() {
+        Article article = new Article();
+        article.setTitle("title");
+        article.setContent("content");
+        session.save(article);
+    }
+    
+}
+</pre>
