@@ -1,4 +1,4 @@
-
+package com.auuid.dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

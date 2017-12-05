@@ -1,4 +1,4 @@
-
+package com.auuid.dao;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
