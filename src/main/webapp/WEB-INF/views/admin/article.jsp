@@ -6,8 +6,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>首页</title>
-<link type="text/css" rel="stylesheet"
-    href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link type="images/x-icon" rel="shortcut icon" href="../icon/person.ico" />
 </head>
 
