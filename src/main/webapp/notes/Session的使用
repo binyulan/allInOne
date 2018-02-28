@@ -1,0 +1,32 @@
+<p><strong>一. Session 的save方法</strong></p>
+<pre class="brush: java" style="margin-left: 20px">
+    @Test
+    public void testSave() {
+        // 设置domain对象
+        Article article = new Article();
+        article.setTitle("save的使用");
+        article.setContent("把domain对象存到数据库的表中");
+        
+        // 使用session保存article
+        session.save(article);
+    }
+</pre>
+<p>
+<p>被插入的记录如下表所示</p>
+<table class="table table-bordered table-hover" style="margin-left: 40px; width: 40%">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>content</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>save的使用</td>
+            <td>把domain对象存到数据库的表中</td>
+        </tr>
+    </tbody>
+</table>
+</p>
